@@ -1,4 +1,7 @@
 import classNames from 'classnames/bind';
+import React, {useState} from "react"
+
+
 import { gql } from '@apollo/client';
 import Link from 'next/link';
 import flatListToHierarchical from '../../utilities/flatListToHierarchical';
@@ -8,6 +11,8 @@ import stylesFromWP from './NavigationMenuClassesFromWP.module.scss';
 let cx = classNames.bind(styles);
 let cxFromWp = classNames.bind(stylesFromWP);
 
+
+
 export default function NavigationMenu({ menuItems, className }) {
   if (!menuItems) {
     return null;
@@ -16,9 +21,15 @@ export default function NavigationMenu({ menuItems, className }) {
   // Based on https://www.wpgraphql.com/docs/menus/#hierarchical-data
   const hierarchicalMenuItems = flatListToHierarchical(menuItems);
 
+
+  const [navOpen, setNavOpen] = useState(false);
+
+const toggleNavMenu = () => setNavOpen(prevNavOpen => !prevNavOpen);
+
+
   function renderMenu(items) {
     return (
-      <ul className={cx('menu')}>
+      <ul className={cx('primary-menu-items')} aria-labelledby="menu-toggle-btn">
         {items.map((item) => {
           const { id, path, label, children, cssClasses } = item;
 
@@ -28,7 +39,7 @@ export default function NavigationMenu({ menuItems, className }) {
           }
 
           return (
-            <li key={id} className={cxFromWp(cssClasses)}>
+            <li key={id} className={`primary-menu-item ${cxFromWp(cssClasses)}`}>
               <Link href={path ?? ''}>{label ?? ''}</Link>
               {children.length ? renderMenu(children, true) : null}
             </li>
@@ -39,10 +50,25 @@ export default function NavigationMenu({ menuItems, className }) {
   }
 
   return (
-    <nav
-      className={cx(['component', className])}
+    <nav 
+      className={`${className} primary-menu ${navOpen ? 'active' : null}`}
       role="navigation"
-      aria-label={`${menuItems[0]?.menu?.node?.name} menu`}>
+      aria-label={`${menuItems[0]?.menu?.node?.name}`}>
+        <button 
+          id="menu-toggle-btn" 
+          aria-expanded={navOpen ? true : false}
+          onClick={toggleNavMenu}
+        >
+          <span className="sr-only">
+            Main Navigation Menu
+          </span>
+          <span className="toggle-icon">
+            <span className="bar" />
+            <span className="bar" />
+            <span className="bar" />
+          </span>
+          <span className="close-text">close</span>
+        </button>
       {renderMenu(hierarchicalMenuItems)}
     </nav>
   );

@@ -35,7 +35,7 @@ export default function Header({
               ☰
             </button>
             <NavigationMenu
-              className={cx(['primary-navigation', isNavShown ? 'show' : undefined])}
+              className={cx(['primary-menu', isNavShown ? 'show' : undefined])}
               menuItems={menuItems}
             />
         </div>

@@ -6,6 +6,7 @@ import {
   Footer,
   Main,
   Container,
+  ContentWrapper,
   NavigationMenu,
   Hero,
   SEO,
@@ -18,8 +19,10 @@ export default function Component() {
 
   const { title: siteTitle, description: siteDescription } =
     data?.generalSettings;
+
   const primaryMenu = data?.headerMenuItems?.nodes ?? [];
-  const footerMenu = data?.footerMenuItems?.nodes ?? [];
+
+  const theContent = data?.nodeByUri?.content ?? false;
 
   return (
     <>
@@ -33,12 +36,13 @@ export default function Component() {
         <Container>
           <Hero title={'Front Page'} />
           <div className="text-center">
-            <p>This page is utilizing the "front-page" WordPress template.</p>
-            <code>./wp-templates/front-page.js</code>
+
+              <ContentWrapper content={theContent} />
+            
           </div>
         </Container>
       </Main>
-      <Footer title={siteTitle} menuItems={footerMenu} />
+      <Footer title={siteTitle} />
     </>
   );
 }
@@ -48,7 +52,6 @@ Component.query = gql`
   ${NavigationMenu.fragments.entry}
   query GetPageData(
     $headerLocation: MenuLocationEnum
-    $footerLocation: MenuLocationEnum
   ) {
     generalSettings {
       ...BlogInfoFragment
@@ -58,17 +61,35 @@ Component.query = gql`
         ...NavigationMenuItemFragment
       }
     }
-    footerMenuItems: menuItems(where: { location: $footerLocation }) {
-      nodes {
-        ...NavigationMenuItemFragment
+      nodeByUri(uri: "/") {
+        __typename
+        ... on ContentType {
+          id
+          name
+        }
+        ... on Page {
+          id
+          title
+        }
       }
-    }
-  }
+      
+        nodeByUri(uri: "/") {
+          __typename
+          ... on ContentType {
+            id
+            name
+          }
+          ... on Page {
+            id
+            title
+            content
+          }
+        }
+      }
 `;
 
 Component.variables = () => {
   return {
     headerLocation: MENUS.PRIMARY_LOCATION,
-    footerLocation: MENUS.FOOTER_LOCATION,
   };
 };
