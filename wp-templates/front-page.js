@@ -34,12 +34,7 @@ export default function Component() {
       />
       <Main>
         <Container>
-          <Hero title={'Front Page'} />
-          <div className="text-center">
-
-              <ContentWrapper content={theContent} />
-            
-          </div>
+          <ContentWrapper content={theContent} />
         </Container>
       </Main>
       <Footer title={siteTitle} />
@@ -50,9 +45,7 @@ export default function Component() {
 Component.query = gql`
   ${BlogInfoFragment}
   ${NavigationMenu.fragments.entry}
-  query GetPageData(
-    $headerLocation: MenuLocationEnum
-  ) {
+  query GetPageData($headerLocation: MenuLocationEnum) {
     generalSettings {
       ...BlogInfoFragment
     }
@@ -61,31 +54,31 @@ Component.query = gql`
         ...NavigationMenuItemFragment
       }
     }
-      nodeByUri(uri: "/") {
-        __typename
-        ... on ContentType {
-          id
-          name
-        }
-        ... on Page {
-          id
-          title
-        }
+    nodeByUri(uri: "/") {
+      __typename
+      ... on ContentType {
+        id
+        name
       }
-      
-        nodeByUri(uri: "/") {
-          __typename
-          ... on ContentType {
-            id
-            name
-          }
-          ... on Page {
-            id
-            title
-            content
-          }
-        }
+      ... on Page {
+        id
+        title
       }
+    }
+
+    nodeByUri(uri: "/") {
+      __typename
+      ... on ContentType {
+        id
+        name
+      }
+      ... on Page {
+        id
+        title
+        content
+      }
+    }
+  }
 `;
 
 Component.variables = () => {
