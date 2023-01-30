@@ -7,6 +7,7 @@ import {
   SkipNavigationLink,
 } from '../../components';
 import styles from './Header.module.scss';
+import Image from 'next/image';
 
 let cx = classNames.bind(styles);
 
@@ -36,7 +37,11 @@ export default function Header({
             className={cx(['primary-menu', isNavShown ? 'show' : undefined])}
             menuItems={menuItems}
           />
-          <div>Logo</div>
+          <Image
+            src="/images/taylor-wilkinson-logo-orange-trans-bg.webp"
+            width={100}
+            height={100}
+          />
           <div>Dark</div>
           {/* <div className={cx('brand')}>
             <Link href="/">

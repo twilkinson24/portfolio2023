@@ -11,6 +11,7 @@ import {
   Hero,
   SEO,
 } from '../components';
+import TWHomeMain from '../components/TWHomeMain/TWHomeMain';
 
 export default function Component() {
   const { data } = useQuery(Component.query, {
@@ -34,7 +35,8 @@ export default function Component() {
       />
       <Main>
         <Container>
-          <ContentWrapper content={theContent} />
+          {/* <ContentWrapper content={theContent} /> */}
+          <TWHomeMain />
         </Container>
       </Main>
       <Footer title={siteTitle} />
