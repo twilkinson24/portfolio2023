@@ -1,3 +1,5 @@
+@import 'styles/breakpoints';
+
 .component {
   color: var(--wpe--color--white);
   background-color: var(--wpe--color--black);
@@ -16,6 +18,7 @@
 
 .main-img {
   border-radius: 100%;
+  padding-top: 0.5rem;
 }
 
 .main-content {
@@ -36,13 +39,16 @@
   font-weight: bold;
 }
 
-@media (min-width: 768px) {
+@media (min-width: $breakpoint-small) {
   .main-flex {
     flex-direction: row;
     gap: 4rem;
   }
   .main-content {
     max-width: 64.5%;
+  }
+  .main-img {
+    padding-top: 0.5rem;
   }
 }
 

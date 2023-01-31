@@ -1,24 +1,47 @@
+@import 'styles/breakpoints';
+
 .component {
-	color: var(--wpe--footer--color);
-	background: var(--wpe--footer--background-color);
-	padding-top: var(--wpe--section--padding-y);
-	padding-bottom: var(--wpe--section--padding-y);
+  color: var(--wpe--footer--color);
+  background: var(--wpe--footer--background-color);
+  padding-top: var(--wpe--section--padding-y);
+  padding-bottom: var(--wpe--section--padding-y);
 }
 
 .copyright {
-	margin: 2rem 0;
-	text-align: center;
-	font-size: .9rem;
-	color: rgba(0, 0, 0, 0.7)
+  margin: 1rem 0;
+  font-size: 0.9rem;
+  color: rgba(0, 0, 0, 0.7);
 }
 
 .footer {
-	padding: 3rem 0;
-	border-top: 1px solid black;
+  border-top: 1px solid var(--wpe--footer--color);
 }
 
 .social-links {
-	display: flex;
-	justify-content: center;
-	gap: 1.5rem;
+  display: flex;
+  gap: 1.5rem;
+  padding: 1rem 0;
+}
+
+.avatar-section {
+  border-bottom: 1px solid var(--wpe--footer--color);
+  padding: 2rem 0;
+}
+
+.avatar-img {
+  border-radius: 100%;
+}
+
+@media (min-width: $breakpoint-small) {
+  .social-links {
+    justify-content: center;
+    gap: 2.5rem;
+  }
+  .copyright {
+    text-align: center;
+  }
+  .avatar-section {
+    display: flex;
+    justify-content: center;
+  }
 }

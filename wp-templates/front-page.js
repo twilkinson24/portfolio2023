@@ -12,7 +12,6 @@ import {
   SEO,
 } from '../components';
 import TWHomeMain from '../components/TWHomeMain/TWHomeMain';
-import { TWBackground } from '../components/TWBackground';
 import Image from 'next/image';
 
 export default function Component() {
@@ -41,7 +40,7 @@ export default function Component() {
           <TWHomeMain />
         </Container>
       </Main>
-      <Footer title={siteTitle} />
+      <Footer title={siteTitle} frontPage={true} />
     </>
   );
 }

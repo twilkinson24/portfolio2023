@@ -44,7 +44,7 @@ export default function Component(props) {
           </Container>
         </>
       </Main>
-      <Footer title={siteTitle} />
+      <Footer title={siteTitle} frontPage={false} />
     </>
   );
 }
