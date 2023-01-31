@@ -71,3 +71,20 @@
     width: auto;
   }
 }
+
+.nav-flex {
+  flex: 1;
+}
+
+@media (min-width: $breakpoint-small) {
+  .nav-flex {
+    flex: 0;
+    order: 1;
+  }
+  .logo-flex-order {
+    order: 2;
+  }
+  .dark-flex-order {
+    order: 3;
+  }
+}

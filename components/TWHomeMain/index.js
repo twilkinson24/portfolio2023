@@ -1,1 +1,1 @@
-export { default as SkipNavigationLink } from './SkipNavigationLink';
+export { default as TWHomeMain } from './TWHomeMain';

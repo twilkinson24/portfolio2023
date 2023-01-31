@@ -12,6 +12,8 @@ import {
   SEO,
 } from '../components';
 import TWHomeMain from '../components/TWHomeMain/TWHomeMain';
+import { TWBackground } from '../components/TWBackground';
+import Image from 'next/image';
 
 export default function Component() {
   const { data } = useQuery(Component.query, {

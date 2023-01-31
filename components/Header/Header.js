@@ -34,15 +34,29 @@ export default function Header({
             ☰
           </button> */}
           <NavigationMenu
-            className={cx(['primary-menu', isNavShown ? 'show' : undefined])}
+            className={cx([
+              'primary-menu',
+              'nav-flex',
+              isNavShown ? 'show' : undefined,
+            ])}
             menuItems={menuItems}
           />
-          <Image
-            src="/images/taylor-wilkinson-logo-orange-trans-bg.webp"
-            width={100}
-            height={100}
-          />
-          <div>Dark</div>
+          <div className={cx(['dark-mode-toggle', 'dark-flex-order'])}>
+            <button>
+              <span className="moon"></span>
+              dark mode
+            </button>
+          </div>
+          <a
+            href="https://twilkinson.com/"
+            className={cx(['header-logo-link', 'logo-flex-order'])}
+          >
+            <Image
+              src="/images/taylor-wilkinson-logo-orange-trans-bg.webp"
+              width={100}
+              height={100}
+            />
+          </a>
           {/* <div className={cx('brand')}>
             <Link href="/">
               <a className={cx('title')}>{title}</a>
