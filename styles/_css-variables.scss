@@ -5,6 +5,7 @@
   // Color Definitions.
   --wpe--color--black: #000;
   --wpe--color--white: #fff;
+  --wpe--color--transparent: transparent;
   --wpe--color--offwhite: #f7f7f7;
   --wpe--color--neutral: rgba(175, 184, 193, 0.2);
   --wpe--color--slate: #0a2540;
@@ -18,15 +19,15 @@
   --wpe--code--color: var(--wpe--color--black);
   --wpe--code--background-color: var(--wpe--color--neutral);
   --wpe--header--color: var(--wpe--color--slate);
-  --wpe--header--background-color: var(--wpe--color--white);
+  --wpe--header--background-color: var(--wpe--color--transparent);
   --wpe--navigation-menu--color: var(--wpe--color--black);
   --wpe--navigation-menu--color--hover: var(--wpe--color--accent);
   --wpe--navigation-menu--background-color: transparent;
   --wpe--dropdown--background-color: var(--wpe--color--white);
   --wpe--main--color: var(--wpe--color--black);
-  --wpe--main--background-color: var(--wpe--color--white);
+  --wpe--main--background-color: var(--wpe--color--transparent);
   --wpe--footer--color: var(--wpe--color--black);
-  --wpe--footer--background-color: var(--wpe--color--white);
+  --wpe--footer--background-color: var(--wpe--color--transparent);
   --wpe--heading--color: var(--wpe--color--accent);
   --wpe--border--light: 1px solid var(--wpe--color--neutral);
   --wpe--border--extra-light: 1px solid var(--wpe--color--offwhite);

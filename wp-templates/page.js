@@ -25,7 +25,7 @@ export default function Component(props) {
   const { title, content, featuredImage } = props?.data?.page ?? { title: '' };
 
   return (
-    <>
+    <div className='tw-page-wrap'>
       <SEO
         title={siteTitle}
         description={siteDescription}
@@ -45,7 +45,7 @@ export default function Component(props) {
         </>
       </Main>
       <Footer title={siteTitle} frontPage={false} />
-    </>
+    </div>
   );
 }
 

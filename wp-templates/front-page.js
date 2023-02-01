@@ -27,7 +27,7 @@ export default function Component() {
   const theContent = data?.nodeByUri?.content ?? false;
 
   return (
-    <>
+    <div className='tw-page-wrap'>
       <SEO title={siteTitle} description={siteDescription} />
       <Header
         title={siteTitle}
@@ -41,7 +41,7 @@ export default function Component() {
         </Container>
       </Main>
       <Footer title={siteTitle} frontPage={true} />
-    </>
+    </div>
   );
 }
 
