@@ -74,7 +74,9 @@ export default function Header({
               src="/images/taylor-wilkinson-logo-orange-trans-bg.webp"
               width={100}
               height={100}
+              alt={title}
             />
+            <span className='screen-reader-text'>{title}</span>
           </a>
           {/* <div className={cx('brand')}>
             <Link href="/">
