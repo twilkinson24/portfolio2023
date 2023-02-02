@@ -482,6 +482,15 @@ img {
 /*
 	* Header
   */
+.header-logo-link {
+  transition: transform 0.3s ease;
+}
+
+.header-logo-link:focus,
+.header-logo-link:hover {
+  transform: rotate(15deg) scale(1.02);
+}
+
 .header-logo-link:after {
   content: none;
 }
