@@ -38,8 +38,8 @@ export default function Component(props) {
       />
       <Main>
         <>
-          {/* <EntryHeader title={title} image={featuredImage?.node} /> */}
           <Container>
+            <h1>{title}</h1>
             <ContentWrapper content={content} />
           </Container>
         </>

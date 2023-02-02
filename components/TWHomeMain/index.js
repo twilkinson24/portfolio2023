@@ -1,1 +1,0 @@
-export { default as TWHomeMain } from './TWHomeMain';
