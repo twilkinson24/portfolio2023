@@ -12,21 +12,20 @@ export default function Footer({ title, menuItems, frontPage }) {
     <footer className={cx('component')}>
       <Container>
         <div className={cx('footer')}>
-          <h1>
-            {frontPage ? null : (
-              <div className={cx('avatar-section')}>
-                <a href="#" className={cx(['header-logo-link', 'avatar-link'])}>
-                  <Image
-                    src="/images/twAvatar.png"
-                    width={80}
-                    height={80}
-                    alt="Drawing of Taylor Wilkinson"
-                    className={cx('avatar-img')}
-                  />
-                </a>
-              </div>
-            )}
-          </h1>
+          {frontPage ? null : (
+            <div className={cx('avatar-section')}>
+              <a href="/" className={cx(['header-logo-link', 'avatar-link'])}>
+                <Image
+                  src="/images/twAvatar.png"
+                  width={80}
+                  height={80}
+                  alt="Drawing of Taylor Wilkinson"
+                  className={cx('avatar-img')}
+                />
+                <span className="screen-reader-text">Taylor Wilkinson</span>
+              </a>
+            </div>
+          )}
           <div className={cx('social-links')}>
             <a href="https://twitter.com/coding4tacos" target="_blank">
               <Image
