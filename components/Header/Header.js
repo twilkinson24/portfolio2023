@@ -1,4 +1,10 @@
 import { useState } from 'react';
+
+import * as React from 'react';
+import * as ReactDOM from 'react-dom';
+
+/// https://betterprogramming.pub/a-complete-guide-to-implementing-dark-mode-in-react-47af893b22eb taylor dark mode
+
 import classNames from 'classnames/bind';
 import Link from 'next/link';
 import {
@@ -9,6 +15,12 @@ import {
 import styles from './Header.module.scss';
 import Image from 'next/image';
 
+
+// import DarkModeToggle from "../../utilities/DarkModeToggle"
+
+//https://www.npmjs.com/package/dark-mode-toggle
+
+
 let cx = classNames.bind(styles);
 
 export default function Header({
@@ -17,6 +29,7 @@ export default function Header({
   menuItems,
 }) {
   const [isNavShown, setIsNavShown] = useState(false);
+
 
   return (
     <header className={cx('component')}>
@@ -41,14 +54,20 @@ export default function Header({
             ])}
             menuItems={menuItems}
           />
-          <div className={cx(['dark-mode-toggle', 'dark-flex-order'])}>
+
+
+
+          {/* <div className={cx(['dark-mode-toggle', 'dark-flex-order'])}>
             <button>
               <span className="moon"></span>
               dark mode
             </button>
-          </div>
+          </div> */}
+
+
+
           <a
-            href="https://twilkinson.com/"
+            href="/"
             className={cx(['header-logo-link', 'logo-flex-order'])}
           >
             <Image
