@@ -1,5 +1,6 @@
 import '../faust.config';
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { ThemeContext } from '../contexts/theme-context'
 import { useRouter } from 'next/router';
 import { FaustProvider } from '@faustwp/core';
 import '../styles/global.scss';
@@ -7,9 +8,30 @@ import '../styles/global.scss';
 export default function MyApp({ Component, pageProps }) {
   const router = useRouter();
 
+  const isBrowserDefaultDark = () => function mount() {
+    window.matchMedia('(prefers-color-scheme: dark)').matches;
+  }
+
+  if (typeof window === "undefined") return null;
+
+  const getDefaultTheme = () => {
+    const localStorageTheme = typeof window === "undefined" ? false : localStorage.getItem('default-theme');
+    const browserDefault = isBrowserDefaultDark() ? 'dark' : 'light';
+    return localStorageTheme || browserDefault;
+  };
+  
+  const [theme, setTheme] = useState(getDefaultTheme());
+
+  
+
   return (
-    <FaustProvider pageProps={pageProps}>
-      <Component {...pageProps} key={router.asPath} />
-    </FaustProvider>
+    <ThemeContext.Provider value={{ theme, setTheme }}>
+      <FaustProvider pageProps={pageProps}>
+        <div className={`theme ${theme}-mode`}>
+          <Component {...pageProps} key={router.asPath} />
+        </div>
+      </FaustProvider>
+    </ThemeContext.Provider>
+
   );
 }

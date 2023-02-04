@@ -20,7 +20,7 @@ export default function Footer({ title, menuItems, frontPage }) {
                   width={80}
                   height={80}
                   alt="Drawing of Taylor Wilkinson"
-                  className={cx('avatar-img')}
+                  className={cx(['avatar-img'])}
                 />
                 <span className="screen-reader-text">Taylor Wilkinson</span>
               </a>
@@ -32,8 +32,8 @@ export default function Footer({ title, menuItems, frontPage }) {
                 src="/images/twitter.svg"
                 width={36}
                 height={36}
-                alt="Twitter icon"
-                className={cx('main-img')}
+                alt="Twitter profile"
+                className='footer-social-img'
               />
             </a>
             <a
@@ -44,8 +44,8 @@ export default function Footer({ title, menuItems, frontPage }) {
                 src="/images/linkedin.svg"
                 width={36}
                 height={36}
-                alt="Linkedin icon"
-                className={cx('main-img')}
+                alt="Linkedin profile"
+                className='footer-social-img'
               />
             </a>
             <a href="https://github.com/twilkinson24" target="_blank">
@@ -53,8 +53,8 @@ export default function Footer({ title, menuItems, frontPage }) {
                 src="/images/github.svg"
                 width={36}
                 height={36}
-                alt="Github icon"
-                className={cx('main-img')}
+                alt="Github profile"
+                className='footer-social-img'
               />
             </a>
             <a
@@ -66,7 +66,7 @@ export default function Footer({ title, menuItems, frontPage }) {
                 width={36}
                 height={36}
                 alt="Taylor Wilkinson smiling while standing in front of some tropical plants"
-                className={cx('main-img')}
+                className='footer-social-img'
               />
             </a>
           </div>

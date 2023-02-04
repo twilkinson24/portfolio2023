@@ -5,17 +5,35 @@
   box-sizing: border-box;
 }
 
+html {
+  height: 100%;
+}
+
 body {
   background-image:  url('../public/images/illustration-of-web-design-template-vector.jpg');
   background-repeat: repeat;
+  height: 100%;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial,
     sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji';
   font-weight: var(--wpe--font-weight--medium);
   font-size: 1rem;
+
+  & > div {
+    height: 100%;
+  }
+}
+
+.theme.dark-mode,
+.theme.light-mode {
+  height: auto;
+  min-height: 100vh;
 }
 
 .tw-page-wrap {
+  height: 100%;
+  height: auto;
+  min-height: 100vh;
   background-color: rgba(255, 255, 255, 0.96);
 }
 
@@ -150,32 +168,47 @@ body {
   color: var(--color-text);
 }
 
-body.light-mode {
-  background-color: #fff;
-  color: #333;
-  animation: fadeInBgWhite 0.1s ease-in 0.1s forwards;
+.theme.light-mode {
+  .tw-page-wrap {
+    // animation: fadeInBgWhite 0.1s ease-in 0.1s forwards;
+    background-color: rgba(255, 255, 255, 0.96);
+    color: #333;
+  }
 }
-body.dark-mode {
-  color: var(--color-accent);
-  animation: fadeInBgBlack 0.1s ease-in 0.1s forwards;
+.theme.dark-mode {
+  color: #fff;
+
+  .tw-page-wrap {
+    // animation: fadeInBgBlack 0.1s ease-in 0.1s forwards;
+    background: rgba(51, 51, 51, 0.97);
+    color: var(--color-accent);
+  }
+
+  p {
+    color: #fff;
+  }
+
+  .footer-social-img {
+    background-image: radial-gradient(#fff 55%, transparent 55%, transparent);
+    border-radius: 100%;
+  }
+
 }
 
 @keyframes fadeInBgWhite {
   0% {
-    background: #fff;
+    background: transparent;
   }
   100% {
-    //   background: linear-gradient(rgba(255, 255, 255, .97), rgba(255, 255, 255, .97), rgba(255, 255, 255, .98)), url('../images/illustration-of-web-design-template-vector.jpeg');
-    background: #ccc;
+    background: rgba(255, 255, 255, 0.96);
   }
 }
 @keyframes fadeInBgBlack {
   0% {
-    background: #333;
+    background: transparent;
   }
   100% {
-    //   background: linear-gradient(rgba(35, 35, 35, .99), rgba(35, 35, 35, .99)), url('../images/illustration-of-web-design-template-vector.jpeg');
-    background: #333;
+    background: rgba(51, 51, 51, 0.97);
   }
 }
 
@@ -438,6 +471,10 @@ img {
   }
 }
 
+.dark-mode-toggle {
+  margin-left: auto;
+}
+
 .dark-mode-toggle button {
   animation: fadeIn 0.3s;
   background: transparent;
@@ -503,12 +540,7 @@ img {
   max-width: 100px;
   width: 20vw;
 }
-.primary-menu,
-.dark-mode-toggle {
-  // flex: 0 0 25%;
-  // min-width: 150px;
-  // max-width: 25%;
-}
+
 .dark-mode-toggle {
   text-align: right;
 }
@@ -1085,7 +1117,7 @@ footer.primary-footer .social-media-icons li a:after {
   }
 
   .dark-mode nav.primary-menu.active ul.primary-menu-items {
-    background-color: rgba(239, 243, 247, 0.95);
+    background-color: #464646;
   }
   .primary-menu-item {
     margin-bottom: 20px;
@@ -1099,6 +1131,13 @@ footer.primary-footer .social-media-icons li a:after {
   .primary-menu-item a:hover,
   .primary-menu-item a:focus {
     color: var(--color-text);
+  }
+
+  .dark-mode {
+    .primary-menu-item a:hover,
+    .primary-menu-item a:focus {
+      color: #ffffff;
+    }
   }
 }
 

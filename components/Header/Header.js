@@ -14,6 +14,8 @@ import {
 } from '../../components';
 import styles from './Header.module.scss';
 import Image from 'next/image';
+import { FC, useContext } from 'react';
+import { ThemeContext } from '../../contexts/theme-context';
 
 
 // import DarkModeToggle from "../../utilities/DarkModeToggle"
@@ -24,11 +26,18 @@ import Image from 'next/image';
 let cx = classNames.bind(styles);
 
 export default function Header({
-  title = 'Headless by WP Engine',
+  title,
   description,
   menuItems,
 }) {
   const [isNavShown, setIsNavShown] = useState(false);
+  const { theme, setTheme } = useContext(ThemeContext);
+
+  const handleThemeChange = () => {
+    const isCurrentDark = theme === 'dark';
+    setTheme(isCurrentDark ? 'light' : 'dark');
+    localStorage.setItem('theme', isCurrentDark ? 'light' : 'dark');
+  };
 
 
   return (
@@ -36,40 +45,8 @@ export default function Header({
       <SkipNavigationLink />
       <Container>
         <div className={cx('navbar')}>
-          {/* <button
-            type="button"
-            className={cx('nav-toggle')}
-            onClick={() => setIsNavShown(!isNavShown)}
-            aria-label="Toggle navigation"
-            aria-controls={cx('primary-navigation')}
-            aria-expanded={isNavShown}
-          >
-            ☰
-          </button> */}
-          <NavigationMenu
-            className={cx([
-              'primary-menu',
-              'nav-flex',
-              isNavShown ? 'show' : undefined,
-            ])}
-            menuItems={menuItems}
-          />
 
-
-
-          {/* <div className={cx(['dark-mode-toggle', 'dark-flex-order'])}>
-            <button>
-              <span className="moon"></span>
-              dark mode
-            </button>
-          </div> */}
-
-
-
-          <a
-            href="/"
-            className={cx(['header-logo-link', 'logo-flex-order'])}
-          >
+          <a href="/" className={`header-logo-link`}>
             <Image
               src="/images/taylor-wilkinson-logo-orange-trans-bg.webp"
               width={100}
@@ -78,12 +55,22 @@ export default function Header({
             />
             <span className='screen-reader-text'>{title}</span>
           </a>
-          {/* <div className={cx('brand')}>
-            <Link href="/">
-              <a className={cx('title')}>{title}</a>
-            </Link>
-            {description && <p className={cx('description')}>{description}</p>}
-          </div> */}
+
+          <NavigationMenu
+            className={cx([
+              'primary-menu',
+              isNavShown ? 'show' : undefined,
+            ])}
+            menuItems={menuItems}
+          />
+
+          <div className={'dark-mode-toggle dark-flex-order'}>
+            <button onClick={handleThemeChange}>
+              <span className="moon"></span>
+              {theme === 'light' ? 'dark' : 'light'} mode
+            </button>
+          </div>
+
         </div>
       </Container>
     </header>

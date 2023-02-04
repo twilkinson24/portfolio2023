@@ -21,7 +21,6 @@ export default function Component() {
     data?.generalSettings;
 
   const primaryMenu = data?.headerMenuItems?.nodes ?? [];
-
   const theContent = data?.nodeByUri?.content ?? false;
 
   return (
