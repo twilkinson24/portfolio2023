@@ -8,14 +8,14 @@ import '../styles/global.scss';
 export default function MyApp({ Component, pageProps }) {
   const router = useRouter();
 
-  const isBrowserDefaultDark = () => function mount() {
+  const isBrowserDefaultDark = () => {
     window.matchMedia('(prefers-color-scheme: dark)').matches;
   }
 
   if (typeof window === "undefined") return null;
 
   const getDefaultTheme = () => {
-    const localStorageTheme = typeof window === "undefined" ? false : localStorage.getItem('default-theme');
+    const localStorageTheme = typeof window === "undefined" ? false : localStorage.getItem('theme') ? localStorage.getItem('theme') : false;
     const browserDefault = isBrowserDefaultDark() ? 'dark' : 'light';
     return localStorageTheme || browserDefault;
   };

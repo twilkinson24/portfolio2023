@@ -18,10 +18,6 @@ import { FC, useContext } from 'react';
 import { ThemeContext } from '../../contexts/theme-context';
 
 
-// import DarkModeToggle from "../../utilities/DarkModeToggle"
-
-//https://www.npmjs.com/package/dark-mode-toggle
-
 
 let cx = classNames.bind(styles);
 
