@@ -427,10 +427,6 @@ a:focus:after {
   animation: fadeToBlack 0.3s forwards;
 }
 
-img {
-  animation: fadeIn 600ms ease-in;
-}
-
 @keyframes fadeIn {
   0% {
     opacity: 0;
