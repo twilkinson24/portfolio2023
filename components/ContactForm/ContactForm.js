@@ -2,7 +2,7 @@ import styles from './ContactForm.module.scss';
 
 export default function ContactForm() {
   return (
-    <form name="contact" action="/contact-success" method="POST" data-netlify="true" className={styles.contactForm}>
+    <form name="contact" method="POST" data-netlify="true" className={styles.contactForm}>
       <input type="hidden" name="form-name" value="contact" />
       <div className={styles.formGroup}>
         <label htmlFor="yourname">
