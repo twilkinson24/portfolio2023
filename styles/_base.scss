@@ -492,7 +492,6 @@ a:focus:after {
   right: calc(100% + 10px);
   transform: translateY(-50%);
   opacity: 0;
-  visibility: hidden;
   transition: opacity 0.35s;
 }
 .dark-mode-toggle button .sun {
@@ -504,12 +503,19 @@ a:focus:after {
   box-shadow: 3px 3px 0 0 #f30;
   transform: translateY(-80%) translateX(-5px);
 }
+
+.light-mode .dark-mode-toggle .sun {
+  display: none;
+}
+
+.dark-mode .dark-mode-toggle .moon {
+  display: none;
+}
+
 .dark-mode-toggle button:hover .moon,
 .dark-mode-toggle button:focus .moon,
 .dark-mode-toggle button:hover .sun,
 .dark-mode-toggle button:focus .sun {
-  display: block;
-  visibility: visible;
   opacity: 1;
 }
 

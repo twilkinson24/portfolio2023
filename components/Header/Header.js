@@ -18,7 +18,6 @@ import { FC, useContext } from 'react';
 import { ThemeContext } from '../../contexts/theme-context';
 
 
-
 let cx = classNames.bind(styles);
 
 export default function Header({
@@ -62,6 +61,7 @@ export default function Header({
 
           <div className={'dark-mode-toggle dark-flex-order'}>
             <button onClick={handleThemeChange}>
+              <span className="sun"></span>
               <span className="moon"></span>
               {theme === 'light' ? 'dark' : 'light'} mode
             </button>
