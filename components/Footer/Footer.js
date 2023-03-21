@@ -71,8 +71,8 @@ export default function Footer({ title, menuItems, frontPage }) {
             </a>
           </div>
           <p className={cx('copyright')}>
-            {`© ${year}`}, Built with <a href="https://faustjs.org/">FaustJS</a>{' '}
-            And <a href="https://wordpress.org/">WordPress</a>
+            {`© ${year}`}, Built with <a href="https://faustjs.org/" target="_blank" rel="noopener noreferrer">FaustJS</a>{' '}
+            And <a href="https://wordpress.org/" target="_blank" rel="noopener noreferrer">WordPress</a>
           </p>
         </div>
       </Container>
