@@ -28,6 +28,9 @@ export default function Header({
   const [isNavShown, setIsNavShown] = useState(false);
   const { theme, setTheme } = useContext(ThemeContext);
 
+  console.log('menuItems')
+  console.log(menuItems)
+
   const handleThemeChange = () => {
     const isCurrentDark = theme === 'dark';
     setTheme(isCurrentDark ? 'light' : 'dark');
@@ -51,13 +54,13 @@ export default function Header({
             <span className='screen-reader-text'>{title}</span>
           </a>
 
-          <NavigationMenu
+          {menuItems.length > 0 && <NavigationMenu
             className={cx([
               'primary-menu',
               isNavShown ? 'show' : undefined,
             ])}
             menuItems={menuItems}
-          />
+          />}
 
           <div className={'dark-mode-toggle dark-flex-order'}>
             <button onClick={handleThemeChange}>

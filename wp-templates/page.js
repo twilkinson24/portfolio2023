@@ -24,6 +24,9 @@ export default function Component(props) {
   const primaryMenu = props?.data?.headerMenuItems?.nodes ?? [];
   const { title, content, featuredImage } = props?.data?.page ?? { title: '' };
 
+  console.log('props')
+  console.log(props)
+
   return (
     <div className='tw-page-wrap'>
       <SEO
