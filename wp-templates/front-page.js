@@ -33,7 +33,7 @@ export default function Component() {
       />
       <Main>
         <Container>
-          <div dangerouslySetInnerHTML={{__html: theContent}} />
+          <div className="tw-front-page" dangerouslySetInnerHTML={{__html: theContent}} />
         </Container>
       </Main>
       <Footer title={siteTitle} frontPage={true} />

@@ -977,8 +977,16 @@ footer.primary-footer .social-media-icons li a:after {
   margin-bottom: var(--spacing-8);
 }
 
+.tw-front-page h1 {
+  color: #333;
+}
+
+
 /* Dark mode */
-.dark-mode h1,
+.dark-mode .tw-front-page h1 {
+  color: #efff;
+}
+
 .dark-mode h2,
 .dark-mode h3,
 .dark-mode h4,
