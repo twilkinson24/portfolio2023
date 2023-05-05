@@ -24,14 +24,17 @@ export default function Component(props) {
   const primaryMenu = props?.data?.headerMenuItems?.nodes ?? [];
   const { title, content, featuredImage } = props?.data?.page ?? { title: '' };
 
-  console.log('props')
-  console.log(props)
+  const { metaDesc: yoastMetaDescription } =
+  props?.data?.page?.seo;
+  
+  const metaTitle = title + ' | ' + siteTitle;
+  const metaDescription = yoastMetaDescription || siteDescription;
 
   return (
     <div className='tw-page-wrap'>
       <SEO
-        title={siteTitle}
-        description={siteDescription}
+        title={metaTitle}
+        description={metaDescription}
         imageUrl={featuredImage?.node?.sourceUrl}
       />
       <Header
@@ -72,6 +75,9 @@ Component.query = gql`
     page(id: $databaseId, idType: DATABASE_ID, asPreview: $asPreview) {
       title
       content
+      seo {
+        metaDesc
+      }
       ...FeaturedImageFragment
     }
     generalSettings {

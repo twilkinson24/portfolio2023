@@ -28,9 +28,6 @@ export default function Header({
   const [isNavShown, setIsNavShown] = useState(false);
   const { theme, setTheme } = useContext(ThemeContext);
 
-  console.log('menuItems')
-  console.log(menuItems)
-
   const handleThemeChange = () => {
     const isCurrentDark = theme === 'dark';
     setTheme(isCurrentDark ? 'light' : 'dark');

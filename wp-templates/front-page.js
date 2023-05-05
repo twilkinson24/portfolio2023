@@ -17,8 +17,14 @@ export default function Component() {
     variables: Component.variables(),
   });
 
+  
   const { title: siteTitle, description: siteDescription } =
-    data?.generalSettings;
+  data?.generalSettings;
+  
+  const { metaDesc: yoastMetaDescription } =
+    data?.nodeByUri?.seo;
+    
+  const metaDescription = yoastMetaDescription || siteDescription;
 
   const primaryMenu = data?.headerMenuItems?.nodes ?? [];
   const theContent = data?.nodeByUri?.content ?? false;
@@ -62,19 +68,10 @@ Component.query = gql`
       ... on Page {
         id
         title
-      }
-    }
-
-    nodeByUri(uri: "/") {
-      __typename
-      ... on ContentType {
-        id
-        name
-      }
-      ... on Page {
-        id
-        title
         content
+        seo {
+          metaDesc
+        }
       }
     }
   }
