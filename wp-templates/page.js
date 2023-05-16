@@ -76,6 +76,7 @@ Component.query = gql`
       title
       content
       seo {
+        title
         metaDesc
       }
       ...FeaturedImageFragment
