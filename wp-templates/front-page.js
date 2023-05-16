@@ -31,7 +31,10 @@ export default function Component() {
 
   return (
     <div className='tw-page-wrap'>
-      <SEO title={siteTitle} description={siteDescription} />
+      <SEO 
+        title={siteTitle + ' | Web developer from Michigan'} 
+        description={metaDescription} 
+      />
       <Header
         title={siteTitle}
         description={siteDescription}
