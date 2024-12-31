@@ -25,7 +25,7 @@ export default function Component() {
     data?.nodeByUri?.seo;
     
   const metaDescription = yoastMetaDescription || siteDescription;
-
+  // console.log(data)
   const primaryMenu = data?.headerMenuItems?.nodes ?? [];
   const theContent = data?.nodeByUri?.content ?? false;
 

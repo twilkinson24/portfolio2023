@@ -50,7 +50,7 @@ export default function Header({
             />
             <span className='screen-reader-text'>{title}</span>
           </a>
-
+          
           {menuItems.length > 0 && <NavigationMenu
             className={cx([
               'primary-menu',
